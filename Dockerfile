@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Command to install standard R packages from CRAN; enter the list of required packages for your app here
-RUN Rscript -e 'install.packages(c("shiny","tidyverse","log4r","readr"))'
+RUN Rscript -e 'install.packages(c("shiny","tidyverse","log4r","readr","RcppTOML"))'
 
 # Copy and prepare the Shiny application
 RUN rm -rf /srv/shiny-server/*

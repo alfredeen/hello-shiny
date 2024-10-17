@@ -36,7 +36,8 @@ Open an R terminal and then run these commands
 Install the R packages
 
     install.packages("log4r")
-    install.packages('readr')
+    install.packages("RcppTOML")
+    install.packages("readr")
     library(shiny)
 
 Run the R app
