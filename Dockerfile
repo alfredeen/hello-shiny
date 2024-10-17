@@ -6,8 +6,7 @@ ENV HOME=/home/$USER
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install --no-install-recommends -y \
-    apt-get install -y git libxml2-dev libmagick++-dev && \
+    apt-get install --no-install-recommends -y git libxml2-dev libmagick++-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
