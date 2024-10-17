@@ -55,7 +55,8 @@ ui <- fluidPage(
 
   # Main panel
   mainPanel(
-    "Hello, world!"
+    p("Hello, world!"),
+    p(paste("log level from envvar = ", log_level))
   ),
 
   # Footer
