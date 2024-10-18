@@ -24,6 +24,10 @@ Browse to the app at  http://localhost:3838/
 
 ## Running the app in R terminal
 
+Copy and edit the .Renviron file
+
+    cp ./.Renviron.template ./app/.Renviron
+
 Pre-requisites
 
     Install R, the R language server and R Shiny.

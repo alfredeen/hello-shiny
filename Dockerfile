@@ -16,6 +16,7 @@ RUN Rscript -e 'install.packages(c("shiny","tidyverse","log4r","readr","RcppTOML
 # Copy and prepare the Shiny application
 RUN rm -rf /srv/shiny-server/*
 COPY /app/ /srv/shiny-server/
+COPY .Renviron.template /srv/shiny-server/.Renviron
 
 USER $USER
 EXPOSE 3838

@@ -5,12 +5,29 @@ library(RcppTOML)
 
 print(paste("Begin app.R. Running in working dir =", getwd()))
 
-# Setup logging
+# Settings to be set from env vars
 log_level <- "DEBUG"
+log_filename <- "app.log"
+
+tryCatch({
+  print("Reading environment variables from .Renviron")
+
+  readRenviron(".Renviron")
+
+  log_level <- Sys.getenv("R_LOGLEVEL")
+  log_filename <- Sys.getenv("R_LOGFILENAME")
+
+}, error=function(e) {
+  print(paste("Error while trying to get env vars", e))
+}, warning=function(e) {
+  print(paste("Warning while trying to get env vars", e))
+})
+
+# Setup logging
 logger <- log4r::logger(log_level)
 log4r::info(logger, paste("START app.R. Logging enabled with log level =", log_level))
 
-log4r::info(logger, "debug test")
+log4r::debug(logger, "debug test")
 
 # App version
 # Get the version nr from the project toml file
@@ -38,7 +55,8 @@ ui <- fluidPage(
 
   # Main panel
   mainPanel(
-    "Hello, world!"
+    p("Hello, world!"),
+    p(paste("log level from envvar = ", log_level))
   ),
 
   # Footer
